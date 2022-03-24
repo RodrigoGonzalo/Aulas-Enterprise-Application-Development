@@ -1,0 +1,43 @@
+Banco:
+
+TB_PEDIDO
+cd_pedido number not null(PK)
+dt_pedido timestamp not null
+dt_pagamento timestamp
+nm_cliente varchar2(50) not null
+ds_pedido varchar2(100)
+vl_pedido float not null
+fl_nota_fiscal blob
+ds_status varchar2(30) not null
+
+Sequence: SQ_TB_PEDIDO (Gerar o valor da chave primária automaticamente)
+
+---
+Exercício, mapear a tabela abaixo:
+
+TB_CLIENTE
+
+cd_cliente number not null (PK)
+nm_cliente varchar2(80) not null
+dt_nascimento date
+dt_cadastro timestamp not null
+ds_genero varchar(20) not null (Enum no Java)
+fl_foto blob
+ds_email varchar2(60)
+ds_telefone varchar2(20)
+ds_endereco varchar2(60)
+nr_cpf varchar2(15) not null
+st_ativo number (boolean no Java)
+
+Atributo idade (não será mapeado para uma coluna na tabela)
+
+Sequence: SQ_TB_CLIENTE
+
+
+
+
+
+
+
+
+

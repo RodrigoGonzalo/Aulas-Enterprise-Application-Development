@@ -1,0 +1,26 @@
+Classe
+Objeto
+Atributos e Métodos
+Valores padrões para os atributos
+Pacotes
+Modificadores de Acesso (4)
+Encapsulamento
+Operador ternário (condicao?se verdadeiro:se falso)
+Construtores
+Herança (super)
+É um? ou Tem um?
+Polimorfismo
+Sobrecarga e Sobrescrita de métodos (toString())
+
+Laços de repetição
+Coleções: Lista e Conjunto (Set)
+Mapa
+Interface
+
+Data: Calendar
+Data com API Java 8: LocalDate, LocalTime, LocalDateTime
+Enum
+
+Classe Abstrata
+Exceptions (Checked, Unchecked)
+Constantes (final, static)
