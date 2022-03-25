@@ -20,85 +20,105 @@ import javax.persistence.TemporalType;
 public class Musica {
 
 	@Id
-	@Column(name="cd_musica")
+	@Column(name="CD_Musica")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "musica")
-	private Integer codigo;
+	private Integer ID;
 	
-	@Column(name="nm_musica", nullable = false, length = 50)
-	private String nome;
+	@Column(name="NM_Musica", nullable = false, length = 50)
+	private String NomeMusica;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name="ds_genero", length = 20)
-	private GeneroMusica genero;
+	@Column(name="DS_GeneroMusica", length = 20)
+	private GeneroMusica Genero;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name="dt_lancamento")
-	private Calendar dataLancamento;
+	@Column(name="DT_Lancamento")
+	private Calendar DataLancamento;
 	
-	@Column(name="ds_duracao", length = 4)
-	private String duracao;
+	@Column(name="DS_Duracao", length = 4)
+	private String Duracao;
 	
-	@Column(name="nm_artista", nullable = false, length = 50)
-	private String nomeArtista;
+	@Column(name="NM_Artista", nullable = false, length = 50)
+	private String NomeArtista;
 	
-	@Column(name="ds_tamanho")
-	private Integer tamanho;
+	@Column(name="DS_Tamanho")
+	private Integer Tamanho;
 
-	public Integer getCodigo() {
-		return codigo;
+	public Integer getID() {
+		return ID;
 	}
 
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+	public void setID(Integer iD) {
+		ID = iD;
 	}
 
 	public String getNome() {
-		return nome;
+		return NomeMusica;
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.NomeMusica = nome;
 	}
 
 	public GeneroMusica getGenero() {
-		return genero;
+		return Genero;
 	}
 
-	public void setGenero(GeneroMusica genero) {
-		this.genero = genero;
+	public void setGenero(GeneroMusica Genero) {
+		this.Genero = Genero;
 	}
 
 	public Calendar getDataLancamento() {
-		return dataLancamento;
+		return DataLancamento;
 	}
 
 	public void setDataLancamento(Calendar dataLancamento) {
-		this.dataLancamento = dataLancamento;
+		DataLancamento = dataLancamento;
 	}
 
 	public String getDuracao() {
-		return duracao;
+		return Duracao;
 	}
 
 	public void setDuracao(String duracao) {
-		this.duracao = duracao;
+		Duracao = duracao;
 	}
 
 	public String getNomeArtista() {
-		return nomeArtista;
+		return NomeArtista;
 	}
 
 	public void setNomeArtista(String nomeArtista) {
-		this.nomeArtista = nomeArtista;
+		NomeArtista = nomeArtista;
 	}
 
 	public Integer getTamanho() {
-		return tamanho;
+		return Tamanho;
 	}
 
 	public void setTamanho(Integer tamanho) {
-		this.tamanho = tamanho;
+		Tamanho = tamanho;
 	}
+
+	// Construtores
+	
+	public Musica() {
+		
+	}
+
+	public Musica(String nomeMusica, GeneroMusica genero, Calendar dataLancamento, String duracao, String nomeArtista,
+			Integer tamanho) {
+		super();
+		NomeMusica = nomeMusica;
+		Genero = genero;
+		DataLancamento = dataLancamento;
+		Duracao = duracao;
+		NomeArtista = nomeArtista;
+		Tamanho = tamanho;
+	}
+
+	
+	
 	
 	
 }

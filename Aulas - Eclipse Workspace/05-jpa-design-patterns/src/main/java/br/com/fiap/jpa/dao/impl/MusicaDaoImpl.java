@@ -5,7 +5,7 @@ import javax.persistence.EntityManager;
 import br.com.fiap.jpa.dao.MusicaDao;
 import br.com.fiap.jpa.entity.Musica;
 import br.com.fiap.jpa.exception.CommitException;
-import br.com.fiap.jpa.exception.IdNotFoundException;
+import br.com.fiap.jpa.exception.ValidarException;
 
 public class MusicaDaoImpl implements MusicaDao {
 	
@@ -15,13 +15,13 @@ public class MusicaDaoImpl implements MusicaDao {
 		this.em = em;
 	}
 
-	public Musica pesquisar(Integer id) throws IdNotFoundException {
+	public Musica pesquisar(Integer id) throws ValidarException {
 		//Pesquisar a musica no banco
 		Musica musica = em.find(Musica.class, id);
 		//Validar se a musica não existe (se é igual null)
 		if (musica == null)
 			//Se existir, lançar uma exception
-			throw new IdNotFoundException(); 
+			throw new ValidarException(); 
 		//Se não existir, Retorna a musica
 		return musica;
 	}
@@ -30,13 +30,13 @@ public class MusicaDaoImpl implements MusicaDao {
 		em.persist(musica);
 	}
 
-	public void atualizar(Musica musica) throws IdNotFoundException {
+	public void atualizar(Musica musica) throws ValidarException {
 		//validar se a musica existe no banco, para ser atualizado
-		pesquisar(musica.getCodigo()); 
+		pesquisar(musica.getID()); 
 		em.merge(musica);
 	}
 
-	public void remover(Integer id) throws IdNotFoundException {
+	public void remover(Integer id) throws ValidarException {
 		Musica musica = pesquisar(id);
 		em.remove(musica);
 	}
