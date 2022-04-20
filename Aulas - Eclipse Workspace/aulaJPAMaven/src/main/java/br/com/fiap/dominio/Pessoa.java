@@ -2,19 +2,35 @@ package br.com.fiap.dominio;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TB_PESSOA")
 public class Pessoa implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@Column(name = "Id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer Id;
+	
+	@Column(name = "Nome", nullable = false)
 	private String Nome;
+	
+	@Column(name = "Email", nullable = false)
 	private String Email;
 	
 	public Pessoa(){
 		
 	}
 	
-	public Pessoa(Integer Id, String Nome, String Email) {
-		this.Id = Id;
+	public Pessoa(String Nome, String Email) {
+		super();
 		this.Nome = Nome;
 		this.Email = Email;
 	}
