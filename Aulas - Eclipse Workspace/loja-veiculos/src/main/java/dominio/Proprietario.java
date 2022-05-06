@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "proprietario")
-//public class Proprietario {
+public class Proprietario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ import javax.persistence.Table;
 	@Column(length = 255)
 	private String email;
 	
-	@OneToOne(mappedBy = "proprietario")
+	//@OneToOne(mappedBy = "proprietario")
 	private Veiculo veiculo;
 	
 	public Proprietario() {

@@ -17,7 +17,7 @@ public class BuscandoVeiculoPelaPlaca {
 		
 		em.getTransaction().begin();
 		
-		VeiculoId codigo = new VeiculoId("ABC-1234", "Montes Claros");
+		VeiculoId codigo = new VeiculoId("ABC-1234", "Uberlândia");
 		Veiculo veiculo = em.find(Veiculo.class, codigo);
 		System.out.println("Placa: " + veiculo.getCodigo().getPlaca());
 		System.out.println("Cidade: " + veiculo.getCodigo().getCidade());

@@ -51,7 +51,7 @@ public class Veiculo {
 	//@Enumerated(EnumType.STRING) // EnumType.ORDINAL (insere número ao invés da string)
 	//private TipoCombustivel tipoCombustivel;
 	
-	//@Temporal(TemporalType.DATE)
+	////@Temporal(TemporalType.DATE)
 	//@Column(name = "data_cadastro", nullable = false)
 	//private LocalDate dataCadastro;
 	

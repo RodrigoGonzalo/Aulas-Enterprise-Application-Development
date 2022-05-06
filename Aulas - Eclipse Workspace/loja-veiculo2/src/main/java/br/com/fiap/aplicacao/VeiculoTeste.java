@@ -1,6 +1,7 @@
 package br.com.fiap.aplicacao;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -8,6 +9,7 @@ import javax.persistence.Persistence;
 
 import br.com.fiap.dominio.TipoCombustivel;
 import br.com.fiap.dominio.Veiculo;
+import br.com.fiap.dominio.VeiculoId;
 
 public class VeiculoTeste {
 
@@ -31,6 +33,7 @@ public class VeiculoTeste {
 		veiculo.setValor(new BigDecimal(90500));
 		*/
 		
+		/*
 		// Persistindo com o Tipo do Combustível!!!
 		Veiculo veiculo = new Veiculo();
 		veiculo.setFabricante("Honda");
@@ -39,7 +42,7 @@ public class VeiculoTeste {
 		veiculo.setAnoModelo(2020);
 		veiculo.setValor(new BigDecimal(90500));
 		veiculo.setTipoCombustivel(TipoCombustivel.BIOCOMBUSTIVEL);
-		
+		*/
 		
 		/*
 		// parte i - Chaves compostas
@@ -53,8 +56,30 @@ public class VeiculoTeste {
 		em.persist(veiculo);
 		*/
 		
-		
+		/*
+		Veiculo veiculo = new Veiculo();
+		veiculo.setCodigo(new VeiculoId("ABC-1234", "Uberlândia"));
+		veiculo.setFabricante("Honda");
+		veiculo.setModelo("Civic");
+		veiculo.setAnoFabricacao(2020);
+		veiculo.setAnoModelo(2020);
+		veiculo.setValor(new BigDecimal(71_300));		
 		em.persist(veiculo);
+		*/
+		
+		
+		// parte ii - Usando Enum
+		Veiculo veiculo = new Veiculo();
+		veiculo.setFabricante("Ford");
+		veiculo.setModelo("Focus");
+		veiculo.setAnoFabricacao(2019);
+		veiculo.setAnoModelo(2020);
+		veiculo.setValor(new BigDecimal(41_500));
+		veiculo.setTipoCombustivel(TipoCombustivel.BIOCOMBUSTIVEL);
+		veiculo.setDataCadastro(LocalDate.now());
+		em.persist(veiculo);
+		
+		
 		em.getTransaction().commit();
 		
 		
