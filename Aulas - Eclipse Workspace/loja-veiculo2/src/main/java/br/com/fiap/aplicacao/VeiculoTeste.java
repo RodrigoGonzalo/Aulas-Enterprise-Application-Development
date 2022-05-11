@@ -67,7 +67,7 @@ public class VeiculoTeste {
 		em.persist(veiculo);
 		*/
 		
-		
+		/*
 		// parte ii - Usando Enum
 		Veiculo veiculo = new Veiculo();
 		veiculo.setFabricante("Ford");
@@ -78,9 +78,23 @@ public class VeiculoTeste {
 		veiculo.setTipoCombustivel(TipoCombustivel.BIOCOMBUSTIVEL);
 		veiculo.setDataCadastro(LocalDate.now());
 		em.persist(veiculo);
+		*/
+		
+		
+		/*
+		// parte iii - Usado data e CLOB (continuação)
+		em.detach(veiculo);
+		Veiculo veiculo2 = em.find(Veiculo.class, veiculo.getCodigo());
+		System.out.println("Veiculo: " + veiculo2.getModelo());
+		System.out.println("---------------");
+		System.out.println(veiculo2.getEspecificacoes());	
+		*/
+		
 		
 		
 		em.getTransaction().commit();
+		
+		
 		
 		
 		//Fechando o Entity Manager e o Factory

@@ -2,7 +2,9 @@ package br.com.fiap.dominio;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Objects;
+import java.util.stream.LongStream;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
@@ -12,6 +14,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -56,6 +59,11 @@ public class Veiculo {
 	@Column(name="Data_Cadastro", nullable = false)
 	private LocalDate dataCadastro;
 	
+	@Lob
+	private String especificacoes;
+	
+	@Lob
+	private byte[] foto;
 	
 	//@Transient
 	//private String descricaoCompleta;
@@ -67,7 +75,7 @@ public class Veiculo {
 
 
 	public Veiculo(Long codigo, String fabricante, String modelo, Integer anoFabricacao, Integer anoModelo,
-			BigDecimal valor, TipoCombustivel tipoCombustivel, LocalDate dataCadastro) {
+			BigDecimal valor, TipoCombustivel tipoCombustivel, LocalDate dataCadastro, String especificacoes, byte[] foto) {
 		super();
 		this.codigo = codigo;
 		this.fabricante = fabricante;
@@ -77,6 +85,8 @@ public class Veiculo {
 		this.valor = valor;
 		this.tipoCombustivel = tipoCombustivel;
 		this.dataCadastro = dataCadastro;
+		this.especificacoes = especificacoes;
+		this.foto = foto;
 	}
 
 
@@ -158,11 +168,36 @@ public class Veiculo {
 	public void setDataCadastro(LocalDate dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
+	
+
+	public String getEspecificacoes() {
+		return especificacoes;
+	}
+
+
+	public void setEspecificacoes(String especificacoes) {
+		this.especificacoes = especificacoes;
+	}
+
+
+	public byte[] getFoto() {
+		return foto;
+	}
+
+
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
 
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(anoFabricacao, anoModelo, codigo, dataCadastro, fabricante, modelo, tipoCombustivel, valor);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(foto);
+		result = prime * result + Objects.hash(anoFabricacao, anoModelo, codigo, dataCadastro, especificacoes,
+				fabricante, modelo, tipoCombustivel, valor);
+		return result;
 	}
 
 
@@ -177,9 +212,13 @@ public class Veiculo {
 		Veiculo other = (Veiculo) obj;
 		return Objects.equals(anoFabricacao, other.anoFabricacao) && Objects.equals(anoModelo, other.anoModelo)
 				&& Objects.equals(codigo, other.codigo) && Objects.equals(dataCadastro, other.dataCadastro)
-				&& Objects.equals(fabricante, other.fabricante) && Objects.equals(modelo, other.modelo)
+				&& Objects.equals(especificacoes, other.especificacoes) && Objects.equals(fabricante, other.fabricante)
+				&& Arrays.equals(foto, other.foto) && Objects.equals(modelo, other.modelo)
 				&& tipoCombustivel == other.tipoCombustivel && Objects.equals(valor, other.valor);
 	}
+
+
+	
 	
 	
 	
